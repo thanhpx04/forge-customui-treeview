@@ -1,0 +1,79 @@
+{
+    "children": [
+      {
+        "id": "1",
+        "content": {
+          "type": "Epic",
+          "summary": "This is summary of Epic 1",
+          "status": "InProgress"
+        },
+        "hasChildren": true,
+        "children": [
+          {
+            "id": "1.1",
+            "content": {
+              "type": "Feature",
+              "summary": "This is summary of Feature A",
+              "status": "Open"
+            },
+            "hasChildren": false
+          },
+          {
+            "id": "1.2",
+            "content": {
+              "type": "Feature",
+              "summary": "This is summary of Feature B",
+              "status": "InProgress"
+            },
+            "hasChildren": true,
+            "children": [
+              {
+                "id": "1.2.1",
+                "content": {
+                  "type": "Story",
+                  "summary": "This is summary of Story X",
+                  "status": "Open"
+                }
+              },
+              {
+                "id": "1.2.2",
+                "content": {
+                  "type": "Story",
+                  "summary": "This is summary of Story Y",
+                  "status": "InProgress"
+                },
+                "hasChildren": true,
+                "children": [
+                  {
+                    "id": "1.2.2.1",
+                    "content": {
+                      "type": "Task",
+                      "summary": "This is summary of Task",
+                      "status": "InProgress"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "1.2.3",
+                "content": {
+                  "type": "Story",
+                  "summary": "This is summary of Story Z",
+                  "status": "Open"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "content": {
+          "type": "Epic",
+          "summary": "This is Epic summary 1",
+          "status": "Open"
+        },
+        "hasChildren": false
+      }
+    ]
+  }

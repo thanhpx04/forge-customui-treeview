@@ -1,0 +1,19 @@
+modules:
+  jira:adminPage:
+    - key: thanh-treeview-basic-hello-world-admin-page
+      resource: main
+      resolver:
+        function: resolver
+      title: Thanh-treeview-basic
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+permissions:
+  content:
+    styles:
+      - 'unsafe-inline'
+app:
+  id: ari:cloud:ecosystem::app/24695fc0-2030-4c00-a3ba-977a28f32881
