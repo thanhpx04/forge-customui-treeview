@@ -33,12 +33,16 @@ const Status = (props: ExampleItemData) => <span>{props.status}</span>;
 
 function App() {
     return (
-        <TableTree
-            headers={['Type', 'Summary', 'Status']}
-            columns={[Type, Summary, Status]}
-            columnWidths={['100px', '400px', '100px']}
-            items={staticData.children}
-        />
+        <div>
+            <TableTree
+                headers={['Type', 'Summary', 'Status']}
+                columns={[Type, Summary, Status]}
+                columnWidths={['100px', '400px', '100px']}
+                items={staticData.children}
+            />
+            <br></br>
+            <Button appearance="primary">Primary button</Button>
+        </div>
     );
 }
 
