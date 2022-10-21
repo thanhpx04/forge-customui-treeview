@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { invoke } from '@forge/bridge';
 import TableTree from '@atlaskit/table-tree';
+import Button from '@atlaskit/button';
 import staticData from './data/data.json';
 
 const projectName = 'TEST';
@@ -8,7 +9,7 @@ const issueLinkName = `Parent of`;
 const data = async () => {
     const params = `issueLinkType = ${issueLinkName} and project=${projectName}`;
     const response = await requestJira(`/rest/api/2/search?jql=${params}`);
-    console.log('call api jira');
+    console.log('===============================================================call api jira');
     return await response.json();
 };
 
