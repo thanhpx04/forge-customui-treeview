@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { invoke } from '@forge/bridge';
+import { requestJira } from '@forge/bridge';
 import TableTree from '@atlaskit/table-tree';
 import Button from '@atlaskit/button';
 import staticData from './data/data.json';
