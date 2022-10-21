@@ -5,7 +5,7 @@ import Button from '@atlaskit/button';
 import staticData from './data/data.json';
 
 const projectName = 'TEST';
-const issueLinkName = `Parent of`;
+const issueLinkName = `'Parent of'`;
 async function fetchData() {
     const params = `issueLinkType = ${issueLinkName} and project=${projectName}`;
     const response = await requestJira(`/rest/api/2/search?jql=${params}`);
