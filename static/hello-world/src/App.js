@@ -6,24 +6,29 @@ import staticData from './data/data.json';
 
 const projectName = 'TEST';
 const issueLinkName = `Parent of`;
-const data = async () => {
+async function fetchData() {
     const params = `issueLinkType = ${issueLinkName} and project=${projectName}`;
     const response = await requestJira(`/rest/api/2/search?jql=${params}`);
     console.log('===============================================================call api jira');
-    return await response.json();
-};
+    const data = await response.json();
+    console.log(data);
+}
+// const data = async () => {
+//     const params = `issueLinkType = ${issueLinkName} and project=${projectName}`;
+//     const response = await requestJira(`/rest/api/2/search?jql=${params}`);
+//     console.log('===============================================================call api jira');
+// };
 
-const issueData = data().then((result) => {
-    let data = [];
-    console.log(result)
-    result.issues.forEach((element) => {
-        data.push({
-            label: element.key, value: element.key, visible: true,
-        });
-    });
+// const issueData = data().then((result) => {
+//     let data = [];
+//     result.issues.forEach((element) => {
+//         data.push({
+//             label: element.key, value: element.key, visible: true,
+//         });
+//     });
 
-    return data;
-});
+//     return data;
+// });
 
 /* eslint react/no-unused-prop-types: 0 */
 type ExampleItemData = { type: string, summary: string, status: string };
@@ -33,6 +38,7 @@ const Summary = (props: ExampleItemData) => <span>{props.summary}</span>;
 const Status = (props: ExampleItemData) => <span>{props.status}</span>;
 
 function App() {
+    fetchData();
     return (
         <div>
             <TableTree
@@ -42,7 +48,7 @@ function App() {
                 items={staticData.children}
             />
             <br></br>
-            <Button appearance="primary">Primary button</Button>
+            <Button appearance="primary" onclick="fetchData()">Primary button</Button>
         </div>
     );
 }
