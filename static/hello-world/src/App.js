@@ -27,6 +27,9 @@ const Summary = (props: ExampleItemData) => <span>{props.summary}</span>;
 const Status = (props: ExampleItemData) => <span>{props.status}</span>;
 
 function App() {
+    let [listHeaders, setHeaders] = useState(['Type', 'IssueKey', 'Summary', 'Status']);
+    let [listColumns, setColumns] = useState([Type, IssueKey, Summary, Status]);
+    // setHeaders()
     return (
         <div>
             <DropdownMenu trigger="Select display columns">
@@ -39,8 +42,8 @@ function App() {
                 </DropdownMenu>
             <p></p>
             <TableTree
-                headers={['Type', 'IssueKey', 'Summary', 'Status']}
-                columns={[Type, IssueKey, Summary, Status]}
+                headers={listHeaders}
+                columns={listColumns}
                 columnWidths={['200px', '200px', '400px', '100px']}
                 items={staticData.children}
                 />
