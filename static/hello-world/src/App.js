@@ -27,19 +27,45 @@ const Summary = (props: ExampleItemData) => <span>{props.summary}</span>;
 const Status = (props: ExampleItemData) => <span>{props.status}</span>;
 
 function App() {
-    let [listHeaders, setHeaders] = useState(['Type', 'IssueKey', 'Summary', 'Status']);
+    let [listHeaders, setHeaders] = useState(['Type', 'Issue Key', 'Summary', 'Status']);
     let [listColumns, setColumns] = useState([Type, IssueKey, Summary, Status]);
+    const [checked, setChecked] = useState<Record<string, boolean>>({
+        todo: true,
+      });
+      const toggle = (name: string) => {
+        setChecked((prev) => ({
+          ...prev,
+          [name]: !prev[name],
+        }));
+      };
     // setHeaders()
     return (
         <div>
-            <DropdownMenu trigger="Select display columns">
-                <DropdownItemCheckboxGroup title="Columns" id="actions">
-                    <DropdownItemCheckbox id="Type" defaultSelected>Type</DropdownItemCheckbox>
-                    <DropdownItemCheckbox id="IssueKey" defaultSelected>Issue Key</DropdownItemCheckbox>
-                    <DropdownItemCheckbox id="Summary" defaultSelected>Summary</DropdownItemCheckbox>
-                    <DropdownItemCheckbox id="Status" defaultSelected>Status</DropdownItemCheckbox>
+            <DropdownMenu trigger="Status">
+                <DropdownItemCheckboxGroup title="Categories" id="actions">
+                    <DropdownItemCheckbox
+                    id="todo"
+                    onClick={(e) => toggle('todo')}
+                    isSelected={checked['todo']}
+                    >
+                    To do
+                    </DropdownItemCheckbox>
+                    <DropdownItemCheckbox
+                    id="inprogress"
+                    onClick={(e) => toggle('inprogress')}
+                    isSelected={checked['inprogress']}
+                    >
+                    In progress
+                    </DropdownItemCheckbox>
+                    <DropdownItemCheckbox
+                    id="done"
+                    onClick={(e) => toggle('done')}
+                    isSelected={checked['done']}
+                    >
+                    Done
+                    </DropdownItemCheckbox>
                 </DropdownItemCheckboxGroup>
-                </DropdownMenu>
+            </DropdownMenu>
             <p></p>
             <TableTree
                 headers={listHeaders}
