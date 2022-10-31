@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { requestJira } from '@forge/bridge';
 import TableTree from '@atlaskit/table-tree';
+import DropdownMenu, {
+    DropdownItemCheckbox,
+    DropdownItemCheckboxGroup,
+  } from '@atlaskit/dropdown-menu';
 import Button from '@atlaskit/button';
 import staticData from './data/data.json';
 
@@ -13,42 +17,35 @@ async function fetchData() {
     const data = await response.json();
     console.log(data);
 }
-// const data = async () => {
-//     const params = `issueLinkType = ${issueLinkName} and project=${projectName}`;
-//     const response = await requestJira(`/rest/api/2/search?jql=${params}`);
-//     console.log('===============================================================call api jira');
-// };
-
-// const issueData = data().then((result) => {
-//     let data = [];
-//     result.issues.forEach((element) => {
-//         data.push({
-//             label: element.key, value: element.key, visible: true,
-//         });
-//     });
-
-//     return data;
-// });
 
 /* eslint react/no-unused-prop-types: 0 */
-type ExampleItemData = { type: string, summary: string, status: string };
+type ExampleItemData = { type: string, issuekey: string, summary: string, status: string };
 
 const Type = (props: ExampleItemData) => <span>{props.type}</span>;
+const IssueKey = (props: ExampleItemData) => <span>{props.issuekey}</span>;
 const Summary = (props: ExampleItemData) => <span>{props.summary}</span>;
 const Status = (props: ExampleItemData) => <span>{props.status}</span>;
 
 function App() {
-    fetchData();
     return (
         <div>
+            <DropdownMenu trigger="Select display columns">
+                <DropdownItemCheckboxGroup title="Columns" id="actions">
+                    <DropdownItemCheckbox id="Type">Type</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="IssueKey">Issue Key</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="Summary">Summary</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="Status">Status</DropdownItemCheckbox>
+                </DropdownItemCheckboxGroup>
+                </DropdownMenu>
+            <p></p>
             <TableTree
-                headers={['Type', 'Summary', 'Status']}
-                columns={[Type, Summary, Status]}
-                columnWidths={['100px', '400px', '100px']}
+                headers={['Type', 'IssueKey', 'Summary', 'Status']}
+                columns={[Type, IssueKey, Summary, Status]}
+                columnWidths={['200px', '200px', '400px', '100px']}
                 items={staticData.children}
-            />
+                />
             <br></br>
-            <Button appearance="primary" onclick="fetchData()">Primary button</Button>
+            <Button appearance="primary" onclick="fetchData()">Fetch Data</Button>
         </div>
     );
 }

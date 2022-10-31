@@ -6,6 +6,7 @@
   "dependencies": {
     "@atlaskit/button": "^16.3.9",
     "@atlaskit/css-reset": "^6.3.15",
+    "@atlaskit/dropdown-menu": "^11.5.1",
     "@atlaskit/table-tree": "^9.2.1",
     "@forge/bridge": "^2.4.0",
     "react": "^16.8.0",
