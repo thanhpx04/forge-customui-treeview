@@ -31,10 +31,10 @@ function App() {
         <div>
             <DropdownMenu trigger="Select display columns">
                 <DropdownItemCheckboxGroup title="Columns" id="actions">
-                    <DropdownItemCheckbox id="Type">Type</DropdownItemCheckbox>
-                    <DropdownItemCheckbox id="IssueKey">Issue Key</DropdownItemCheckbox>
-                    <DropdownItemCheckbox id="Summary">Summary</DropdownItemCheckbox>
-                    <DropdownItemCheckbox id="Status">Status</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="Type" defaultSelected>Type</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="IssueKey" defaultSelected>Issue Key</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="Summary" defaultSelected>Summary</DropdownItemCheckbox>
+                    <DropdownItemCheckbox id="Status" defaultSelected>Status</DropdownItemCheckbox>
                 </DropdownItemCheckboxGroup>
                 </DropdownMenu>
             <p></p>
