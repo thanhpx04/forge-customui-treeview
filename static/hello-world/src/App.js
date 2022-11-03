@@ -23,12 +23,12 @@ const Summary = (content) => <span>{content.summary}</span>;
 const Status = (content) => <span>{content.status}</span>;
 const Actions = (content) =>
     <div>
-        <Button iconBefore={<AddIcon label="" />} appearance="subtle" onClick={handleAdd}></Button>
+        <Button iconBefore={<AddIcon label="" />} appearance="subtle" onClick={handleAdd(content)}></Button>
         <Button iconBefore={<EditIcon label="" />} appearance="subtle" onClick={handleEdit}></Button>
     </div>;
 
-function handleAdd() {
-    console.log("a");
+function handleAdd(content) {
+    console.log(content);
 }
 
 function handleEdit() {
