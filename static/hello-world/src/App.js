@@ -3,6 +3,8 @@ import { requestJira } from '@forge/bridge';
 import TableTree from '@atlaskit/table-tree';
 import DropdownMenu, { DropdownItemCheckbox, DropdownItemCheckboxGroup } from '@atlaskit/dropdown-menu';
 import Button from '@atlaskit/button';
+import AddIcon from '@atlaskit/icon/glyph/add'
+import EditIcon from '@atlaskit/icon/glyph/edit'
 import staticData from './data/data.json';
 
 // const projectName = 'TEST';
@@ -19,6 +21,19 @@ const IssueKey = (content) => <span>{content.issuekey}</span>;
 const Type = (content) => <span>{content.type}</span>;
 const Summary = (content) => <span>{content.summary}</span>;
 const Status = (content) => <span>{content.status}</span>;
+const Actions = (content) =>
+    <div>
+        <Button iconBefore={<AddIcon label="" />} appearance="subtle" onClick={handleAdd}></Button>
+        <Button iconBefore={<EditIcon label="" />} appearance="subtle" onClick={handleEdit}></Button>
+    </div>;
+
+function handleAdd() {
+    console.log("a");
+}
+
+function handleEdit() {
+    console.log("b");
+}
 
 function App() {
     let listMaster = [
@@ -45,12 +60,18 @@ function App() {
             cell: Status,
             width: '200px',
             isDisplay: true
+        },
+        {
+            header: 'Actions',
+            cell: Actions,
+            width: '200px',
+            isDisplay: true
         }
     ];
 
     let [listHeaders, setHeaders] = useState(listMaster.map(item => item.header));
     let [listColumnWidths, setColumnWidths] = useState(listMaster.map(item => item.width));
-    let [listColumns, setColumns] = useState([IssueKey, Type, Summary, Status]);
+    let [listColumns, setColumns] = useState([IssueKey, Type, Summary, Status, Actions]);
     let [checked, setChecked] = useState({ issuekey: true, type: true, summary: true, status: true });
 
     const toggle = (name) => {
@@ -98,7 +119,7 @@ function App() {
                 columnWidths={listColumnWidths}
                 columns={listColumns}
                 items={staticData.children}
-                />
+            />
             <p></p>
             <DropdownMenu trigger="Select display columns">
                 <DropdownItemCheckboxGroup title="Column" id="actions">
@@ -108,7 +129,6 @@ function App() {
                     <DropdownItemCheckbox id="status" onClick={(e) => toggle('status')} isSelected={checked['status']}>Status</DropdownItemCheckbox>
                 </DropdownItemCheckboxGroup>
             </DropdownMenu>
-            {/* <Button appearance="primary" onClick="fetchData()">Fetch Data</Button> */}
         </div>
     );
 }
