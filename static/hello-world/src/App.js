@@ -68,20 +68,16 @@ function App() {
             isDisplay: true
         }
     });
-    let [listHeaders, setListHeaders] = useState(getDisplayItems(dataMaster).map(i => i.header));
-    let [listColumnWidths, setListColumnWidths] = useState(getDisplayItems(dataMaster).map(i => i.width));
-    let [listColumns, setListColumns] = useState(getDisplayItems(dataMaster).map(i => i.cell));
 
     function getDisplayItems(dataMaster) {
         let result = [];
         for (let key in dataMaster) {
-          // obj.hasOwn is used to exclude properties from the object's prototype chain and only show "own properties"
-          if (dataMaster[key].isDisplay) {
-            result.push(dataMaster[key]);
-          }
+            if (dataMaster[key].isDisplay) {
+                result.push(dataMaster[key]);
+            }
         }
         return result;
-      }
+    }
 
     const toggle = (name) => {
         setChecked((prev) => ({
@@ -89,16 +85,13 @@ function App() {
             [name]: { ...prev[name], isDisplay: !prev[name].isDisplay },
         }));
 
-        setListHeaders(getDisplayItems(dataMaster).map(i => i.header));
-        setListColumnWidths(getDisplayItems(dataMaster).map(i => i.width));
-        setListColumns(getDisplayItems(dataMaster).map(i => i.cell));
     };
     return (
         <div>
             <TableTree
-                headers={listHeaders}
-                columnWidths={listColumnWidths}
-                columns={listColumns}
+                headers={getDisplayItems(dataMaster).map(i => i.header)}
+                columnWidths={getDisplayItems(dataMaster).map(i => i.width)}
+                columns={getDisplayItems(dataMaster).map(i => i.cell)}
                 items={staticData.children}
             />
             <p></p>
