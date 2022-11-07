@@ -3,6 +3,7 @@ import { requestJira } from '@forge/bridge';
 import TableTree from '@atlaskit/table-tree';
 import DropdownMenu, { DropdownItemCheckbox, DropdownItemCheckboxGroup } from '@atlaskit/dropdown-menu';
 import Button from '@atlaskit/button';
+import Textfield from '@atlaskit/textfield';
 import AddIcon from '@atlaskit/icon/glyph/add'
 import EditIcon from '@atlaskit/icon/glyph/edit'
 import staticData from './data/data.json';
@@ -17,12 +18,19 @@ import staticData from './data/data.json';
 //     console.log(data);
 // }
 
-function handleAdd(content) {
-    console.log(content);
+function handleAdd(e, row) {
+    console.log(e);
+    console.log(row);
 }
 
 function handleEdit() {
-    console.log("b");
+    return (
+        <Textfield
+            appearance="standard"
+            label="Standard"
+            placeholder="Enter your details here"
+        />
+    )
 }
 
 const IssueKey = (content) => <span>{content.issuekey}</span>;
