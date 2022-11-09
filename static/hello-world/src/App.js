@@ -3,34 +3,16 @@ import { requestJira } from '@forge/bridge';
 import TableTree from '@atlaskit/table-tree';
 import DropdownMenu, { DropdownItemCheckbox, DropdownItemCheckboxGroup } from '@atlaskit/dropdown-menu';
 import Button from '@atlaskit/button';
-import Textfield from '@atlaskit/textfield';
 import AddIcon from '@atlaskit/icon/glyph/add'
 import EditIcon from '@atlaskit/icon/glyph/edit'
 import staticData from './data/data.json';
 
-// const projectName = 'TEST';
-// const issueLinkName = 'Parent of';
-// async function fetchData() {
-//     const params = `issueLinkType = ${issueLinkName} and project=${projectName}`;
-//     const response = await requestJira(`/rest/api/2/search?jql=${params}`);
-//     console.log('===============================================================call api jira');
-//     const data = await response.json();
-//     console.log(data);
-// }
-
-function handleAdd(e, row) {
-    console.log(e);
-    console.log(row);
+function handleAdd() {
+    console.log("add");
 }
 
 function handleEdit() {
-    return (
-        <Textfield
-            appearance="standard"
-            label="Standard"
-            placeholder="Enter your details here"
-        />
-    )
+    console.log("edit");
 }
 
 const IssueKey = (content) => <span>{content.issuekey}</span>;
