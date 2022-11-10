@@ -7,26 +7,28 @@ import AddIcon from '@atlaskit/icon/glyph/add'
 import EditIcon from '@atlaskit/icon/glyph/edit'
 import staticData from './data/data.json';
 
-function handleAdd() {
-    console.log("add");
-}
-
-function handleEdit() {
-    console.log("edit");
-}
-
 const IssueKey = (content) => <span>{content.issuekey}</span>;
 const Type = (content) => <span>{content.type}</span>;
 const Summary = (content) => <span>{content.summary}</span>;
 const Status = (content) => <span>{content.status}</span>;
-const Actions = (content) =>
-    <div>
-        <Button iconBefore={<AddIcon label="" />} appearance="subtle" onClick={handleAdd}></Button>
-        <Button iconBefore={<EditIcon label="" />} appearance="subtle" onClick={handleEdit}></Button>
-    </div>;
+const Actions = (content) => {
+    const addHandler = () => {
+        console.log(content);
+    }
+    
+    const editHandler = () => {
+        console.log("edit");
+    }
+    return (
+        <div>
+            <Button iconBefore={<AddIcon label="" />} appearance="subtle" onClick={addHandler}></Button>
+            <Button iconBefore={<EditIcon label="" />} appearance="subtle" onClick={editHandler}></Button>
+        </div>
+    );
+}
 
 function App() {
-    let [dataMaster, setChecked] = useState({
+    const [dataMaster, setChecked] = useState({
         issuekey: {
             header: 'Issue Key',
             cell: IssueKey,
