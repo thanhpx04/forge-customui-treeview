@@ -61,8 +61,8 @@ export const fetchNewItems = async () => {
   return [
     {
       issuekey: `KEY-${id}`,
-      type: "Feature",
-      summary: "This is summary",
+      type: "New type",
+      summary: "New summary",
       status: "Open",
       children: []
     },
