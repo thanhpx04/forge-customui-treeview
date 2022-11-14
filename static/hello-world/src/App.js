@@ -7,16 +7,13 @@ import Button from '@atlaskit/button';
 import AddIcon from '@atlaskit/icon/glyph/add'
 import EditIcon from '@atlaskit/icon/glyph/edit'
 import staticData from './data/dataArrayType.json';
-import sampleData from './data/sampleData.json';
+// import sampleData from './data/sampleData.json';
+import { fetchNewItems } from './data/getDefaultItems.js';
 
 const tableTreeHelper = new TableTreeDataHelper({ key: 'issuekey' });
 
 const loadTreeData = () => {
     return tableTreeHelper.updateItems(staticData);
-};
-
-const fetchNewItems = async () => {
-    return [sampleData,];
 };
 
 function App() {
