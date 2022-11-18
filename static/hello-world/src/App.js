@@ -18,19 +18,16 @@ function handleEdit() {
 const IssueKey = (content) => <span>{content.issuekey}</span>;
 const Type = (content) => <span>{content.type}</span>;
 const Summary = (content) => <span>{content.summary}</span>;
+const StoryPoint = (content) => <span>{content.storypoint}</span>;
+const OwnerBy = (content) => <span>{content.ownerby}</span>;
 const Status = (content) => <span>{content.status}</span>;
-const Actions = (content) =>
-    <div>
-        <Button iconBefore={<AddIcon label="" />} appearance="subtle" onClick={handleAdd}></Button>
-        <Button iconBefore={<EditIcon label="" />} appearance="subtle" onClick={handleEdit}></Button>
-    </div>;
 
 function App() {
     let [dataMaster, setChecked] = useState({
         issuekey: {
             header: 'Issue Key',
             cell: IssueKey,
-            width: '200px',
+            width: '270px',
             isDisplay: true
         },
         type: {
@@ -45,15 +42,21 @@ function App() {
             width: '400px',
             isDisplay: true
         },
-        status: {
-            header: 'Status',
-            cell: Status,
+        storypoint: {
+            header: 'Story Point',
+            cell: StoryPoint,
             width: '200px',
             isDisplay: true
         },
-        actions: {
-            header: 'Actions',
-            cell: Actions,
+        ownerby: {
+            header: 'Owner By',
+            cell: OwnerBy,
+            width: '200px',
+            isDisplay: true
+        },
+        status: {
+            header: 'Status',
+            cell: Status,
             width: '200px',
             isDisplay: true
         }
@@ -98,6 +101,18 @@ function App() {
                         onClick={(e) => toggle('summary')}
                         isSelected={dataMaster['summary'].isDisplay}>
                         Summary
+                    </DropdownItemCheckbox>
+                    <DropdownItemCheckbox
+                        id="storypoint"
+                        onClick={(e) => toggle('storypoint')}
+                        isSelected={dataMaster['storypoint'].isDisplay}>
+                        Story Point
+                    </DropdownItemCheckbox>
+                    <DropdownItemCheckbox
+                        id="ownerby"
+                        onClick={(e) => toggle('ownerby')}
+                        isSelected={dataMaster['ownerby'].isDisplay}>
+                        Owner By
                     </DropdownItemCheckbox>
                     <DropdownItemCheckbox
                         id="status"

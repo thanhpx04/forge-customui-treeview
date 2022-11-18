@@ -3,9 +3,11 @@
       {
         "id": "1",
         "content": {
-          "type": "Epic",
           "issuekey": "KEY-1",
-          "summary": "This is summary of Epic 1",
+          "type": "Epic",
+          "summary": "Summary of Epic 1",
+          "storypoint": "0 pts",
+          "ownerby": "Thanh",
           "status": "InProgress"
         },
         "hasChildren": true,
@@ -13,9 +15,11 @@
           {
             "id": "1.1",
             "content": {
-              "type": "Feature",
               "issuekey": "KEY-3",
-              "summary": "This is summary of Feature A",
+              "type": "Feature",
+              "summary": "Summary of Feature A",
+              "storypoint": "0 pts",
+              "ownerby": "Thanh",
               "status": "Open"
             },
             "hasChildren": false
@@ -23,9 +27,11 @@
           {
             "id": "1.2",
             "content": {
-              "type": "Feature",
               "issuekey": "KEY-4",
-              "summary": "This is summary of Feature B",
+              "type": "Feature",
+              "summary": "Summary of Feature B",
+              "storypoint": "0 pts",
+              "ownerby": "Thanh",
               "status": "InProgress"
             },
             "hasChildren": true,
@@ -33,18 +39,22 @@
               {
                 "id": "1.2.1",
                 "content": {
-                  "type": "Story",
                   "issuekey": "KEY-5",
-                  "summary": "This is summary of Story X",
+                  "type": "Story",
+                  "summary": "Summary of Story X",
+                  "storypoint": "3 pts",
+                  "ownerby": "Thanh",
                   "status": "Open"
                 }
               },
               {
                 "id": "1.2.2",
                 "content": {
-                  "type": "Story",
                   "issuekey": "KEY-6",
-                  "summary": "This is summary of Story Y",
+                  "type": "Story",
+                  "summary": "Summary of Story Y",
+                  "storypoint": "1 pts",
+                  "ownerby": "Thanh",
                   "status": "InProgress"
                 },
                 "hasChildren": true,
@@ -54,7 +64,9 @@
                     "content": {
                       "type": "Task",
                       "issuekey": "KEY-8",
-                      "summary": "This is summary of Task",
+                      "summary": "Summary of Task",
+                      "storypoint": "0 pts",
+                      "ownerby": "Thanh",
                       "status": "InProgress"
                     }
                   }
@@ -63,9 +75,11 @@
               {
                 "id": "1.2.3",
                 "content": {
-                  "type": "Story",
                   "issuekey": "KEY-7",
-                  "summary": "This is summary of Story Z",
+                  "type": "Story",
+                  "summary": "Summary of Story Z",
+                  "storypoint": "5 pts",
+                  "ownerby": "Thanh",
                   "status": "Open"
                 }
               }
@@ -76,9 +90,11 @@
       {
         "id": "2",
         "content": {
-          "type": "Epic",
           "issuekey": "KEY-2",
-          "summary": "This is summary of Epic 2",
+          "type": "Epic",
+          "summary": "Summary of Epic 2",
+          "storypoint": "0 pts",
+          "ownerby": "Raj",
           "status": "Open"
         },
         "hasChildren": false
