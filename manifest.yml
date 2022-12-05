@@ -1,6 +1,6 @@
 modules:
   jira:adminPage:
-    - key: thanh-treeview-basic-hello-world-admin-page
+    - key: thanh-treeview-basic-app-admin-page
       resource: main
       resolver:
         function: resolver
@@ -10,7 +10,7 @@ modules:
       handler: index.handler
 resources:
   - key: main
-    path: static/hello-world/build
+    path: static/app/build
 permissions:
   scopes: [read:jira-work,write:jira-work]
   content:

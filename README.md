@@ -1,6 +1,6 @@
-# Forge Hello World
+# Forge Hierarchy app
 
-This project contains a Forge app written in Javascript that displays `Hello World!` in a Jira admin page. 
+This project contains a Forge app written in Javascript that displays `Hierarchy table` in a Jira admin page. 
 
 See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
 
@@ -9,14 +9,14 @@ See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/pl
 See [Set up Forge](https://developer.atlassian.com/platform/forge/set-up-forge/) for instructions to get set up.
 
 ## Quick start
-- Install dependencies (inside of the `static/hello-world` directory)::
+- Install dependencies (inside of the `static/app` directory)::
 ```
 npm install
 ```
 
-- Modify your app by editing the files in `static/hello-world/src/`.
+- Modify your app by editing the files in `static/app/src/`.
 
-- Build your app (inside of the `static/hello-world` directory):
+- Build your app (inside of the `static/app` directory):
 ```
 npm run build
 ```
